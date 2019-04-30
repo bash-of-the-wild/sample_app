@@ -1,6 +1,9 @@
 class Api::ExamplePagesController < ApplicationController
   def hello_action
-    render json: {message: "hello"}
+    @message = "hello"
+    @time = Time.now.strftime("%l:%M %p")
+
+    render 'hello_view.json.jbuilder'
   end
 
   def second_action
